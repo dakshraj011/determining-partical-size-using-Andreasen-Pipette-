@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VLab Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Top Panel -->
+    <div class="top-panel">
+      <div class="instruction-box" id="instructionText">
+        Instructions -- this is the first step (typing animation)
+      </div>
+      <!-- Selcet Bar For Choosing Different Languages -->
+       
+      <select class="language-toggle" name="language-toggle" onchange="changeLanguage(this.value)">
+        <option value="en" >English</option>
+        <option value="hi" >हिंदी</option>
+        <option value="bn" >বাংলা</option>
+        <option value="gu" >ગુજરાતી</option>
+        <option value="ml" >മലയാളം</option>
+        <option value="ta" >தமிழ்</option>
+      </select>
+
+
+<!-- 
+      <div class="language-toggle" onclick="toggleLanguagePanel()">
+        <span id="languageButtonText">Select language </span>
+        <div class="language-panel" id="languagePanel">
+          <div class="lang" onclick="changeLanguage('en')">English</div>
+          <div class="lang" onclick="changeLanguage('hi')">हिंदी</div>
+          <div class="lang" onclick="changeLanguage('bn')">বাংলা</div>
+          <div class="lang" onclick="changeLanguage('gu')">ગુજરાતી</div>
+          <div class="lang" onclick="changeLanguage('ml')">മലയാളം</div>
+          <div class="lang" onclick="changeLanguage('ta')">தமிழ்</div>
+        </div>
+      </div> -->
+
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="simulation-area">
+        <div class="bg-text" id="bgText">
+
+<img src="weighing-scale.png" alt="" class="weighing-scale">
+<div class="disk">
+<img src="disk.png" alt="" id="disk1">
+<img src="disk.png" alt="" id="disk2">
+<img src="disk.png" alt="" id="disk3">
+<img src="disk.png" alt="" id="disk4">
+<img src="disk.png" alt="" id="disk5">
+<img src="disk.png" alt="" id="disk6">
+</div>
+<img src="water.png" alt="" class="water">
+<div class="andresen-container">
+  <img src="anderson pippette lower.png" alt="" class="andresen-lower">
+  <img src="anderson_pippette_upper[1].png" alt="" class="andresen-upper">
+ 
+</div>
+<img src="particles.png" alt="" class="particles"> <img src="ovan.png" alt="" class="ovan">
+
+
+
+<img src="boiling.png" alt="" class="boiling">
+
+
+
+          <div class="weighing-controls">
+            <button class="weighing-btn" id="onButton">ON</button>
+            <div class="weight-display" id="weightDisplay" style="width: 5em;">0.00</div>
+            <button class="weighing-btn" id="tareButton">TARE</button>
+          </div>
+        </div>
+         
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Panel -->
+    <div class="bottom-panel">
+      <button class="step-counter" id="stepCounter">step counter</button>
+      <button class="next-btn" onclick="nextStep()">next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

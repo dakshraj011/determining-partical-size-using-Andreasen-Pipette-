@@ -1,0 +1,2109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+
+    color: white;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .top-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .instruction-box {
+    flex: 1;
+    font-size: 1em;
+    padding: 10px;
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+   background-color: lightgreen;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+/* StopWatch */
+  #stopwatchDisplay {
+    position: absolute;
+      font-size: 60px;
+      left:3%;
+      bottom: 98%;
+     color: #000000;
+    }
+    .btn {
+      font-size: 20px;
+      padding: 10px 25px;
+      margin: 10px;
+      cursor: pointer;
+      position: absolute;
+     
+      top: 2%;
+    }
+    #startStopBtn{
+      top:2%;
+       left:3%;
+    }
+    #resetBtn{
+       top:2%;
+       left:55%;
+    }
+
+  .language-toggle {
+
+    padding: 10px;
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000000;
+    position: relative;
+    font-size: 1em;
+    font-weight: 500;
+  }
+
+  .language-panel {
+    position: absolute;
+    top: 60px;
+    width: 120px;
+    right: 8px;
+    background:white;
+    border-radius: 4px;
+   border:1px solid #adb0b0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    color: black;
+    z-index: 100;
+
+  }
+  .language-panel .lang{
+    padding: .3em;
+  }
+  .language-panel .lang:hover{
+
+  }
+
+
+  .language-panel div {
+    cursor: pointer;
+  }
+
+  .main-content {
+    display: flex;
+    flex: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .simulation-area {
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+    flex: 1;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('bg-lab.png') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+  .jar {
+    position: absolute;
+    bottom: 5%;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 15em;
+
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+
+  .andresen-container {
+    position: absolute;
+    bottom: 5%;
+    left: 80%;
+    transform: translateX(-50%);
+    width: 12em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 5;
+  }
+
+  #andresen-lower {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    position: relative;
+        bottom: -30%;
+        cursor: pointer;
+
+  }
+
+  #andresen-upper {
+    
+    width: 100%;
+    object-fit: contain;
+    z-index: 2;
+
+    position: absolute;
+    bottom: 4%;
+    margin-bottom: -10px; 
+    /* Adjust this value to make the parts connect properly */
+  }
+
+/* Add Event Listner To andresen-lower */
+@keyframes MovePipetteToDisk1 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 50%;
+  bottom: 7%;
+}
+  70%{
+    right: 152%;
+    bottom: 7%;
+  }
+80%{
+  right: 252%;
+    bottom: 7%;
+}
+100%{
+  right: 252%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToDisk2 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 50%;
+  bottom: 7%;
+}
+  70%{
+    right: 152%;
+    bottom: 7%;
+  }
+80%{
+  right: 252%;
+    bottom: 7%;
+}
+100%{
+  right: 212%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToDisk3 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 50%;
+  bottom: 7%;
+}
+  70%{
+    right: 152%;
+    bottom: 7%;
+  }
+80%{
+  right: 173%;
+    bottom: 7%;
+}
+100%{
+  right: 173%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToDisk4 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 50%;
+  bottom: 7%;
+}
+  70%{
+    right: 102%;
+    bottom: 7%;
+  }
+80%{
+  right: 134%;
+    bottom: 7%;
+}
+100%{
+  right: 134%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToDisk5 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 50%;
+  bottom: 7%;
+}
+  70%{
+    right: 85%;
+    bottom: 7%;
+  }
+80%{
+  right: 94%;
+    bottom: 7%;
+}
+100%{
+  right: 94%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToDisk6 {
+  0%{
+    bottom: -30%;
+  }
+  30%{
+    bottom: 7%;
+  }
+50%{
+  right: 20%;
+  bottom: 7%;
+}
+  70%{
+    right: 32%;
+    bottom: 7%;
+  }
+80%{
+  right: 47%;
+    bottom: 7%;
+}
+100%{
+  right: 47%;
+    bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder1 {
+  0%{
+   right: 252%;
+    bottom: -30%;
+  }
+  30%{
+    right: 252%;
+    bottom: 7%;
+  }
+50%{
+  right: 152%;
+    bottom: 7%;
+}
+  70%{
+    right: 50%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder2 {
+  0%{
+   right: 212%;
+    bottom: -30%;
+  }
+  30%{
+    right: 212%;
+    bottom: 7%;
+  }
+50%{
+  right: 152%;
+    bottom: 7%;
+}
+  70%{
+    right: 50%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder3 {
+  0%{
+    right: 173%;
+    bottom: -30%;
+  }
+  30%{
+    right: 150%;
+    bottom: 7%;
+  }
+50%{
+  right: 100%;
+    bottom: 7%;
+}
+  70%{
+    right: 50%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder4 {
+  0%{
+   right: 134%;
+    bottom: -30%;
+  }
+  30%{
+    right: 100%;
+    bottom: 7%;
+  }
+50%{
+  right: 75%;
+    bottom: 7%;
+}
+  70%{
+    right: 50%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder5 {
+  0%{
+  right: 94%;
+    bottom: -30%;
+  }
+  30%{
+    right: 75%;
+    bottom: 7%;
+  }
+50%{
+  right: 52%;
+    bottom: 7%;
+}
+  70%{
+    right: 30%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+@keyframes MovePipetteToCylinder6 {
+  0%{
+    right: 47%;
+    bottom: -30%;
+  }
+  30%{
+    right: 40%;
+    bottom: 7%;
+  }
+50%{
+  right: 30%;
+    bottom: 7%;
+}
+  70%{
+    right: 20%;
+  bottom: 7%;
+  }
+80%{
+ bottom: 7%;
+}
+100%{
+  bottom: -30%;
+}
+
+}
+  .ovan{
+    position: absolute;
+    left: 9%;
+    bottom: 25%;
+    width: 15%;
+    object-fit: contain;
+    z-index: 3;
+    margin-bottom: -10px;
+  }
+  #disk1,#disk2, #disk3, #disk4, #disk5, #disk6{
+    position: absolute;
+    cursor: pointer;
+    bottom: 6%;
+    left:50%;
+    transform: translateX(-50%);
+    width: 7.5%;
+    object-fit: contain;
+    z-index: 10;
+    margin-bottom: -10px;
+  }
+
+  /* For Move From Flask to original Place */
+  @keyframes Disk1 {
+    0%{
+      transform: skewY(0deg);
+       left: 46%;
+    }
+    50%{
+      transform: skewY(0deg);
+      left: 46%;
+    top: 71%;
+    }
+    100%{
+      transform: skewY(0deg);
+      left: 46%;
+    top: 82.5%;
+    }
+  }
+  #disk2{
+    left:55%;
+  }
+  /* For Move From Flask to original Place */
+  @keyframes Disk2 {
+    0%{
+      transform: skewY(0deg);
+       left: 51.25%;
+    }
+    50%{
+      transform: skewY(0deg);
+    left: 51.25%;
+    top: 71%;
+    }
+    100%{
+      transform: skewY(0deg);
+      left: 51.25%;
+      top: 82.5%;
+    }
+  }
+  #disk3{
+    /* left: 75%; */
+    left: 60%;
+
+  }
+  /* For Move From Flask to original Place */
+  @keyframes Disk3 {
+    0%{
+      transform: skewY(0deg);
+       left: 56.25%;
+    }
+    50%{
+      transform: skewY(0deg);
+    left: 56.25%;
+    top: 64%;
+    }
+    100%{
+      transform: skewY(0deg);
+      left: 56.25%;
+      top: 82.5%;
+    }
+  }
+  #disk4{
+    /* left: 60%; */
+    left: 65%;
+  }
+  /* For Move From Flask to original Place */
+  @keyframes Disk4 {
+    0%{
+      transform: skewY(0deg);
+       left: 61.25%;
+    }
+    50%{
+      transform: skewY(0deg);
+    left: 61.25%;
+    top: 64%;
+    }
+    100%{
+      transform: skewY(0deg);
+     left: 61.25%;
+    top: 82.5%;
+    }
+  }
+  #disk5{
+    /* left: 65%; */
+    left: 70%;
+  }
+  /* For Move From Flask to original Place */
+  @keyframes Disk5 {
+    0%{
+      transform: skewY(0deg);
+       left: 66.75%;
+    }
+     50%{
+      transform: skewY(0deg);
+    left: 66.75%;
+    top: 64%;
+    }
+    100%{
+      transform: skewY(0deg);
+     left: 66.75%;
+    top: 82.5%;
+    }
+  }
+  #disk6{
+    /* left: 70%; */
+    left: 76%;
+  }
+  /* For Move From Flask to original Place */
+  @keyframes Disk6 {
+    0%{
+      transform: skewY(0deg);
+       left: 71.25%;
+    }
+     50%{
+      transform: skewY(0deg);
+    left: 71.25%;
+    top: 64%;
+    }
+    100%{
+      transform: skewY(0deg);
+      left: 71.25%;
+      top: 82.5%;
+    }
+  }
+  @keyframes Disk {
+    0% {}
+  
+  25% {
+      /* transform: translateZ(10px); */
+      /* left: 40%; */
+      top: 73%;
+  }
+  100% {
+      /* transform: translateY(100px); */
+      left: 25%;
+  }
+  }
+@keyframes DiskToFlask {
+  0%{ 
+    left: 25%;
+  }
+  20%{
+    left: 25%;
+    top: 59%;
+  }
+  60%{
+    left:30%;
+     top: 59%;
+  }
+  80%{
+    left:40%;
+     top: 59%;
+  }
+  100%{
+    left:44.5%;
+     top: 59%;
+  }
+}
+@keyframes DiskToOven1 {
+  0%{
+     left: 46.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 46.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 40.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 31.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+
+
+@keyframes DiskToOven2 {
+  0%{
+     left: 51.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 51.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 40.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 31.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+@keyframes DiskToOven3 {
+  0%{
+     left: 57.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 57.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 42.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 31.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+@keyframes DiskToOven4 {
+  0%{
+     left: 61.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 60.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 47.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 35.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+@keyframes DiskToOven5 {
+  0%{
+     left: 65.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 65.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 44.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 31.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+@keyframes DiskToOven6 {
+  0%{
+     left: 71.25%;
+      top: 82.5%;
+      transform: skewY(0deg);
+  }
+  20%{
+     left: 71.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  50%{
+    left: 44.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 30.25%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  100%{
+    left: 15%;
+      top: 57.5%;
+      transform: skewY(0deg);
+  }
+  
+}
+
+#powder1,#powder2,#powder3,#powder4,#powder5,#powder6{
+    width: 20px;
+    left: 17%;
+    position: absolute;
+    top: 65%;
+    z-index: 13;
+    opacity:0;
+}
+@keyframes OvenToPowder1 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 40%;
+     top: 65%;
+  }
+  80%{
+     left: 48%;
+     top: 65%;
+  }
+  100%{
+    left: 48%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk1 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 37%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 48%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 46%;
+     top: 82.5%;
+  }
+}
+@keyframes OvenToPowder2 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 40%;
+     top: 65%;
+  }
+  80%{
+     left: 54%;
+     top: 65%;
+  }
+  100%{
+    left: 54%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk2 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 37%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 52%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 52%;
+     top: 82.5%;
+  }
+}
+@keyframes OvenToPowder3 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 40%;
+     top: 65%;
+  }
+  80%{
+     left: 59%;
+     top: 65%;
+  }
+  100%{
+    left: 59%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk3 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 37%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 57%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 57%;
+     top: 82.5%;
+  }
+}
+@keyframes OvenToPowder4 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 40%;
+     top: 65%;
+  }
+  80%{
+     left: 64%;
+     top: 65%;
+  }
+  100%{
+    left: 64%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk4 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 37%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 62%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 62%;
+     top: 82.5%;
+  }
+}
+@keyframes OvenToPowder5 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 40%;
+     top: 65%;
+  }
+  80%{
+     left: 69%;
+     top: 65%;
+  }
+  100%{
+    left: 69%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk5 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 37%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 67%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 67%;
+     top: 82.5%;
+  }
+}
+@keyframes OvenToPowder6 {
+  0%{
+    left: 17%;
+     top: 65%;
+  }
+  40%{
+    left: 30%;
+     top: 65%;
+  }
+  60%{
+    left: 42%;
+     top: 65%;
+  }
+  80%{
+     left: 75%;
+     top: 65%;
+  }
+  100%{
+    left: 75%;
+     top: 91%;
+  }
+}
+@keyframes OvenToDisk6 {
+  0%{
+    left: 14%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  40%{
+    left: 27%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  60%{
+    left: 39%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  80%{
+     left: 72%;
+     top: 58%;
+      transform: skewY(0deg);
+  }
+  100%{
+    transform: skewY(0deg);
+    left: 72%;
+     top: 82.5%;
+  }
+}
+  .powderBox{
+    display:grid;
+    width: 90px;
+    height: 25px;
+    position: absolute;
+    left: 24%;
+    bottom: 47%;
+    cursor: pointer;
+  }
+  #cap{
+    width: 60px;
+        left: 6%;
+    position: absolute;
+    z-index: 15;
+  }
+#box{
+  width: 70px;
+  z-index: 10;
+}
+@keyframes openCap {
+  0%{}
+  25%{
+    left:87%;
+  }
+  50%{
+     left:87%;
+     top:160%;
+  }
+  75%{
+    left:87%;
+    top:260%;
+  }
+  100%{
+     left:87%;
+    top:300%;
+  }
+}
+#spatula{
+  width: 100px;
+  height: 45px;
+  left: 27%;
+  top:62%;
+    position: absolute;
+    cursor: pointer;
+    
+}
+@keyframes Spatula {
+  0%{}
+  10%{
+    top:31%;
+  }
+  20%{
+     top:31%;
+    
+  }
+  30%{
+    left:25%;
+     top:32%;
+    
+  }
+  40%{
+    left:25%;
+    top:45%;
+  }
+  50%{
+    left:26%;
+    top:40%;
+  }
+  70%{
+   left:28%;
+    top:79%;
+   
+  }
+  100%{
+     z-index: 15;
+    left: 24%;
+    top: 65%;
+  }
+}
+#powder{
+    width: 20px;
+    left: 26%;
+    position: absolute;
+    top: 53%;
+    z-index: -1;
+
+}
+
+@keyframes Powder {
+  0%{}
+  10%{
+    left: 26%;
+     top: 53%;
+  }
+  20%{
+left: 26%;
+     top: 53%;
+  }
+  30%{
+left: 26%;
+     top: 53%;
+  }
+  40%{
+    left: 26%;
+     top: 53%;
+    }
+50%{
+    left:25%;
+    top:41%;
+}
+  /* 56%{
+    left:26%;
+    top:40%;
+  } */
+  70%{
+    left:27%;
+    top:80%;
+  }
+  100%{
+    z-index: 15;
+    left:24%;
+    top:80%;
+  }
+}
+@keyframes PowderToFlask {
+  0%{
+    left:24%;
+    top:80%;
+  }
+  20%{
+     left:23.5%;
+    top: 66%;
+    z-index: 15;
+  }
+  60%{
+    left:30%;
+     top: 66%;
+    z-index: 15;
+  }
+  80%{
+    left:38.5%;
+     top: 66%;
+    z-index: 15;
+  }
+  100%{
+   left: 43%;
+    top: 66%;
+    z-index: 15;
+  }
+}
+@keyframes PowderIntoFlask {
+  0%{
+    left: 43%;
+    top: 66%;
+    z-index: 6;
+  }
+  100%{
+    left: 44%;
+    top: 93%;
+    z-index: 6;
+  }
+}
+#water{
+  cursor: pointer;
+}
+@keyframes WaterIntoFlask {
+  0%{
+    left:37%;
+    bottom: 1%;
+  }
+  20%{
+    bottom: 25%;
+    left:37%;
+  }
+  70%{
+     bottom: 25%;
+       left:38%;
+  }
+  100%{
+    bottom: 20%;
+    left: 39.5%;
+    transform: rotate(-35deg);
+  }
+}
+@keyframes WaterToPlace {
+  0%{
+    bottom: 20%;
+    left: 44%;
+    transform: rotate(-35deg);
+  }
+  20%{
+    bottom: 25%;
+       left:38%;
+    transform: rotate(35deg);
+  }
+  70%{
+     bottom: 25%;
+    left:37%;
+    
+  }
+  100%{
+    left:37%;
+    bottom: 1%;
+  }
+}
+#drop
+{
+    width: 7px;
+    position: absolute;
+    bottom: 23%;
+    left: 43.85%;
+    /* z-index: -1; */
+}
+@keyframes DropIntoFlask {
+  0%{
+    bottom: 23%;
+    left: 43.85%;
+    z-index: 1;
+  }
+  50%{
+     bottom: 19%;
+    left: 43.85%;
+    z-index: 1;
+  }
+  100%{
+    bottom: 15%;
+    left: 43.85%;
+    z-index: 1;
+  }
+}
+@keyframes DropIntoDisk1 {
+  0%{
+    bottom: 19%;
+    left: 49.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 49.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 49.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropIntoDisk2 {
+  0%{
+    bottom: 19%;
+    left: 54.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 54.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 54.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropIntoDisk3 {
+  0%{
+    bottom: 19%;
+    left: 59.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 59.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 59.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropIntoDisk4 {
+  0%{
+    bottom: 19%;
+    left: 64.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 64.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 64.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropIntoDisk5 {
+  0%{
+    bottom: 19%;
+    left: 69.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 69.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 69.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropIntoDisk6 {
+  0%{
+    bottom: 19%;
+    left: 75.4%;
+    z-index: 7;
+  }
+  50%{
+     bottom: 15%;
+    left: 75.4%;
+    z-index: 7;
+  }
+  100%{
+    bottom: 10%;
+    left: 75.4%;
+    z-index: 7;
+  }
+}
+@keyframes DropToOven1 {
+  0%{
+     left: 49.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 48.5%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 43%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 34.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+@keyframes DropToOven2 {
+  0%{
+     left: 54.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 54.15%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 43%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 34.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+@keyframes DropToOven3 {
+  0%{
+     left: 59.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 59.25%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 45%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 34.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+@keyframes DropToOven4 {
+  0%{
+     left: 64.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 63.25%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 50%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 38.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+@keyframes DropToOven5 {
+  0%{
+     left: 69.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 68.15%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 47%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 34.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+@keyframes DropToOven6 {
+  0%{
+     left: 74.15%;
+     bottom: 6%;
+     
+  }
+  20%{
+     left: 74.15%;
+      bottom: 32%;
+      
+  }
+  50%{
+    left: 47%;
+      bottom:  32%;
+      
+  }
+  80%{
+     left: 33.15%;
+      bottom: 32%;
+      
+  }
+  100%{
+    left: 18.15%;
+     bottom: 32%;
+     
+  }
+  
+}
+#drop1{
+  opacity: 0;
+    width: 19px;
+    left: 49.15%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#drop2{
+  opacity: 0;
+    width: 19px;
+    left: 54.15%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#drop3{
+  opacity: 0;
+    width: 19px;
+    left: 59.15%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#drop4{
+ opacity: 0;
+    width: 19px;
+    left: 64.15%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#drop5{
+ opacity: 0;
+    width: 19px;
+    left: 69.15%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#drop6{
+  opacity: 0;
+    width: 19px;
+    left: 75%;
+    position: absolute;
+    bottom: 6%;
+    z-index: 15;
+}
+#flask{
+  cursor: pointer;
+}
+@keyframes MoveFlask {
+  0%{
+    left: 41%;
+    transform: rotate(0deg);
+  }
+  50%{
+    left: 41%;
+    transform: rotate(35deg);
+  }
+  100%{
+    left: 41%;
+     transform: rotate(0deg);
+  }
+}
+@keyframes MovePowderIntoFlask {
+  0%{
+    left: 41%;
+    top: 91%;
+    transform: rotate(0deg);
+  }
+  50%{
+    left: 41%;
+    top: 91%;
+    transform: rotate(35deg);
+  }
+  100%{
+    left: 41%;
+    top: 91%;
+     transform: rotate(0deg);
+  }
+}
+/* Move Flask To the cylinder */
+@keyframes MoveToCylinder { 
+  0%{
+    left: 41%;
+  }
+  20%{
+     left: 41%;
+     bottom: 35%;
+  }
+  50%{
+    left: 60%;
+    bottom: 35%;
+  }
+  100%{
+   left: 72%;
+    bottom: 37%;
+    transform: rotate(100deg);
+  }
+}
+
+@keyframes  DropMoveToCylinder{
+  0%{
+    bottom: 45%;
+    left: 81.3%;
+    /* z-index: 1; */
+  }
+  50%{
+     bottom: 43%;
+    left: 81.3%;
+    /* z-index: 1; */
+  }
+  90%{
+    bottom: 41%;
+    left: 81.3%;
+    /* z-index: 1; */
+  }
+  100%{
+    bottom: 40%;
+    left: 81.3%;
+    /* z-index: 1; */
+  }
+}
+@keyframes MoveDropIntoFlask {
+  0%{
+    bottom: 48%;
+    left: 75.5%;
+    z-index: 20;
+  }
+  50%{
+     bottom: 47%;
+    left: 75.5%;
+    z-index: 20;
+  }
+  100%{
+    bottom: 45%;
+    left: 75.5%;
+    z-index: 20;
+  }
+}
+@keyframes FlaskToPlace {
+  
+0%{
+    left: 72%;
+    bottom: 37%;
+    transform: rotate(-100deg);
+  }
+  20%{
+     left: 60%;
+    bottom: 35%;
+  }
+  50%{
+     left: 41%;
+     bottom: 35%;
+  }
+  100%{
+    left: 44%;
+  }
+
+}
+.ChemicalWater {
+  opacity: 0;
+}
+#chemicalWater1{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -23%;
+    z-index: 2;
+
+}
+#chemicalWater2{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -19%;
+}
+#chemicalWater3{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -15%;
+}
+#chemicalWater4{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -11%;
+}
+#chemicalWater5{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -7%;
+}
+#chemicalWater6{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: -3%;
+}
+#chemicalWater7{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 1%;
+
+}
+#chemicalWater8{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 5%;
+}
+#chemicalWater9{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 9%;
+}
+#chemicalWater10{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 13%;
+}
+#chemicalWater11{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 17%;
+}
+#chemicalWater12{
+    width: 43px;
+    left: 12.25%;
+    position: relative;
+    bottom: 21%;
+}
+
+  .particles {
+    position: relative;
+    bottom: 15%;
+    left: 80%;
+    display: none;
+    transform: translateX(-50%);
+    width: 3em;
+    height: 7em;
+    object-fit: contain;
+    background-size: contain;
+    z-index: 6;
+    mix-blend-mode: color-dodge;
+  }
+  .sample1 {
+    position: absolute;
+    bottom: 32%;
+    left:5%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample2 {
+    position: absolute;
+    bottom: 32%;
+    left: 8%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample3 {
+    position: absolute;
+    bottom: 32%;
+    left: 11%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample4 {
+    position: absolute;
+    bottom: 32%;
+    left: 14%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample5 {
+    position: absolute;
+    bottom: 32%;
+    left: 17%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample6 {
+    position: absolute;
+    bottom: 32%;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+  .boiling {
+    position: absolute;
+    bottom: 1%;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 7em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .water{
+    position: absolute;
+    bottom: 1%;
+    left: 37%;
+    transform: translateX(-50%);
+    width: 15em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+  .container-img {
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+
+    width: 5em;
+    height: auto;
+    object-fit: contain;
+    background-size: contain;
+  }
+
+  .weighing-scale {
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 150px;
+
+
+
+
+    background-size: contain;
+  }
+  .bulk-machine {
+    position: absolute;
+    bottom: 20px;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 250px;
+
+    object-fit: cover;
+
+
+    background-size: contain;
+  }
+  .bg-text {
+    color: #ccc;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .machine-img {
+    position: absolute;
+    width: 80px;
+    height: auto;
+  }
+
+  .bottom-panel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .step-counter, .next-btn {
+    background: green;
+    border: 2px solid #2e31c4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+  }
+  .spatchula {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+    rotate:30deg;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  .step-counter:active, .next-btn:active {
+    background: #2ec4b6;
+    color: black;
+
+  }
+
+  .weighing-controls {
+    display: flex;
+    position: absolute;
+    bottom: 23px;
+    left: 20.17%;
+    transform: translateX(-50% -50%);
+    align-items: center;
+    gap: 14%;
+    
+
+  }
+
+  .weighing-btn {
+    padding: 1px 5px;
+
+    border: 1px solid red;
+    background:red;
+    color: white;
+    cursor: pointer;
+    font-size: .5em;
+
+    transition: background 0.3s ease;
+  }
+
+  /* .weighing-btn:hover {
+    background: #238f85;
+  } */
+
+  .weighing-btn:active {
+    background: #1b6b63;
+  }
+
+  .weight-display {
+    color: #737171;
+    font-family: "Digital-7", monospace;
+    border-radius: 2px;
+    font-size: 16px;
+    text-align: right;
+    width: 5em;
+    margin-bottom: 10px;
+    /* display: none; Initially hidden */
+  }
+
+  /* Add blink animation */
+  @keyframes blinkEffect {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0.5; }
+    75% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+  /* Class to apply when display is turned on */
+  .weight-display.active {
+    display: flex;
+    animation: blinkEffect 0.8s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px 5px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+  }
+

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VLab Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Top Panel -->
+    <div class="top-panel">
+      <div class="instruction-box" id="instructionText">
+        Instructions -- this is the first step (typing animation)
+      </div>
+      <!-- Selcet Bar For Choosing Different Languages -->
+       
+      <select class="language-toggle" name="language-toggle" onchange="changeLanguage(this.value)">
+        <option value="en" >English</option>
+        <option value="hi" >हिंदी</option>
+        <option value="bn" >বাংলা</option>
+        <option value="gu" >ગુજરાતી</option>
+        <option value="ml" >മലയാളം</option>
+        <option value="ta" >தமிழ்</option>
+      </select>
+
+
+
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="simulation-area">
+        <div class="bg-text" id="bgText">
+
+<img src="weighing-scale.png" alt="" class="weighing-scale">
+<div class="disk">
+<img src="disk.png" alt="" id="disk1">
+<img src="disk.png" alt="" id="disk2">
+<img src="disk.png" alt="" id="disk3">
+<img src="disk.png" alt="" id="disk4">
+<img src="disk.png" alt="" id="disk5">
+<img src="disk.png" alt="" id="disk6">
+</div>
+<img src="water.png" alt="" id="water" class="water">
+<img src="gravity density bottle water.png"  alt="" id="drop">
+<div class="andresen-container">
+  <img src="anderson pippette lower.png" alt="" id="andresen-lower">
+  <img src="anderson_pippette_upper[1].png" alt="" id="andresen-upper">
+ 
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater1" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater2" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater3" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater4" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater5" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater6" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater7" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater8" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater9" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater10" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater11" alt="">
+    <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater12" alt="">
+
+   
+  <!-- stopwatch -->
+  <div class="stopWatch">
+     <div id="stopwatchDisplay">00:00:00</div>
+  <button id="startStopBtn" class="btn">Start</button>
+  <button id="resetBtn" class="btn">Reset</button>
+  </div>
+</div>
+<img src="particles.png" alt="" class="particles"> <img src="ovan.png" alt="" class="ovan">
+<img src="chemical powder in spatula.png" id="powder1" alt="">
+<img src="chemical powder in spatula.png" id="powder2" alt="">
+<img src="chemical powder in spatula.png" id="powder3" alt="">
+<img src="chemical powder in spatula.png" id="powder4" alt="">
+<img src="chemical powder in spatula.png" id="powder5" alt="">
+<img src="chemical powder in spatula.png" id="powder6" alt="">
+ <img src="gravity density bottle water.png" id="drop1" alt="">
+    <img src="gravity density bottle water.png" id="drop2" alt="">
+    <img src="gravity density bottle water.png" id="drop3" alt="">
+    <img src="gravity density bottle water.png" id="drop4" alt="">
+    <img src="gravity density bottle water.png" id="drop5" alt="">
+    <img src="gravity density bottle water.png" id="drop6" alt="">
+
+<img src="boiling.png" alt="" id="flask" class="boiling">
+
+          <div class="weighing-controls">
+            <button class="weighing-btn" id="onButton">ON</button>
+            <div class="weight-display" id="weightDisplay" style="width: 5em;">0.00</div>
+            <button class="weighing-btn" id="tareButton">TARE</button>
+          </div>
+        </div>
+         
+        <div class="powderBox">
+          <img src="chemical powder cap.png" id="cap" alt="">
+
+          <img src="calcium carbonate box.png" id="box" alt="">
+        </div>
+          <img src="spatula.png" id="spatula" alt="">
+          <img src="chemical powder in spatula.png" id ="powder" alt="">
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Panel -->
+    <div class="bottom-panel">
+      <button class="step-counter" id="stepCounter">step counter</button>
+      <button class="next-btn" onclick="nextStep()">next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

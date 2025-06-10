@@ -1,0 +1,446 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+
+    color: white;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  .top-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .instruction-box {
+    flex: 1;
+    font-size: 1em;
+    padding: 10px;
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+   background-color: lightgreen;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .language-toggle {
+
+    padding: 10px;
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #000000;
+    position: relative;
+    font-size: 1em;
+    font-weight: 500;
+  }
+
+  .language-panel {
+    position: absolute;
+    top: 60px;
+    width: 120px;
+    right: 8px;
+    background:white;
+    border-radius: 4px;
+   border:1px solid #adb0b0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    color: black;
+    z-index: 100;
+
+  }
+  .language-panel .lang{
+    padding: .3em;
+  }
+  .language-panel .lang:hover{
+
+  }
+
+
+  .language-panel div {
+    cursor: pointer;
+  }
+
+  .main-content {
+    display: flex;
+    flex: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .simulation-area {
+    border:1px solid #adb0b0;
+    border-radius: 4px;
+    flex: 1;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('bg-lab.png') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+  .jar {
+    position: absolute;
+    bottom: 5%;
+    left: 65%;
+    transform: translateX(-50%);
+    width: 15em;
+
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+
+  .andresen-container {
+    position: absolute;
+    bottom: 5%;
+    left: 80%;
+    transform: translateX(-50%);
+    width: 12em;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 5;
+  }
+
+  .andresen-lower {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    position: relative;
+
+  }
+
+  .andresen-upper {
+    
+    width: 100%;
+    object-fit: contain;
+    z-index: 2;
+
+    position: absolute;
+    bottom: 4%;
+    margin-bottom: -10px; 
+    /* Adjust this value to make the parts connect properly */
+  }
+  .ovan{
+    position: absolute;
+    left: 9%;
+    bottom: 25%;
+    width: 15%;
+    object-fit: contain;
+    z-index: 3;
+    margin-bottom: -10px;
+  }
+  #disk1,#disk2, #disk3, #disk4, #disk5, #disk6{
+    position: absolute;
+    cursor: pointer;
+    bottom: 6%;
+    left:50%;
+    transform: translateX(-50%);
+    width: 7.5%;
+    object-fit: contain;
+    z-index: 4;
+    margin-bottom: -10px;
+  }
+  #disk1{
+
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    /* animation: Disk 3s ease-in-out .5s 1 ; */
+  }
+  
+  #disk2{
+    left:55%;
+  }
+  #disk3{
+    left: 75%;
+  }
+  #disk4{
+    left: 60%;
+  }
+  #disk5{
+    left: 65%;
+  }
+  #disk6{
+    left: 70%;
+  }
+  @keyframes Disk {
+    0% {}
+  
+  25% {
+      /* transform: translateZ(10px); */
+      /* left: 40%; */
+      top: 73%;
+  }
+  100% {
+      /* transform: translateY(100px); */
+      left: 25%;
+  }
+  }
+
+
+  .particles {
+    position: absolute;
+    bottom: 15%;
+    left: 80%;
+    display: none;
+    transform: translateX(-50%);
+    width: 3em;
+    height: 7em;
+    object-fit: contain;
+    background-size: contain;
+    z-index: 6;
+    mix-blend-mode: color-dodge;
+  }
+  .sample1 {
+    position: absolute;
+    bottom: 32%;
+    left:5%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample2 {
+    position: absolute;
+    bottom: 32%;
+    left: 8%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample3 {
+    position: absolute;
+    bottom: 32%;
+    left: 11%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample4 {
+    position: absolute;
+    bottom: 32%;
+    left: 14%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample5 {
+    position: absolute;
+    bottom: 32%;
+    left: 17%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .sample6 {
+    position: absolute;
+    bottom: 32%;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 4em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+  .boiling {
+    position: absolute;
+    bottom: 1%;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 7em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+  .water{
+    position: absolute;
+    bottom: 1%;
+    left: 37%;
+    transform: translateX(-50%);
+    width: 15em;
+    height: auto;
+    object-fit: cover;
+    background-size: contain;
+  }
+
+  .container-img {
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
+
+    width: 5em;
+    height: auto;
+    object-fit: contain;
+    background-size: contain;
+  }
+
+  .weighing-scale {
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 150px;
+
+
+
+
+    background-size: contain;
+  }
+  .bulk-machine {
+    position: absolute;
+    bottom: 20px;
+    left: 70%;
+    transform: translateX(-50%);
+    width: 250px;
+
+    object-fit: cover;
+
+
+    background-size: contain;
+  }
+  .bg-text {
+    color: #ccc;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .machine-img {
+    position: absolute;
+    width: 80px;
+    height: auto;
+  }
+
+  .bottom-panel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .step-counter, .next-btn {
+    background: green;
+    border: 2px solid #2e31c4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+  }
+  .spatchula {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+    rotate:30deg;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  .step-counter:active, .next-btn:active {
+    background: #2ec4b6;
+    color: black;
+
+  }
+
+  .weighing-controls {
+    display: flex;
+    position: absolute;
+    bottom: 23px;
+    left: 20.17%;
+    transform: translateX(-50% -50%);
+    align-items: center;
+    gap: 14%;
+    
+
+  }
+
+  .weighing-btn {
+    padding: 1px 5px;
+
+    border: 1px solid red;
+    background:red;
+    color: white;
+    cursor: pointer;
+    font-size: .5em;
+
+    transition: background 0.3s ease;
+  }
+
+  /* .weighing-btn:hover {
+    background: #238f85;
+  } */
+
+  .weighing-btn:active {
+    background: #1b6b63;
+  }
+
+  .weight-display {
+    color: #737171;
+    font-family: "Digital-7", monospace;
+    border-radius: 2px;
+    font-size: 16px;
+    text-align: right;
+    width: 5em;
+    margin-bottom: 10px;
+    /* display: none; Initially hidden */
+  }
+
+  /* Add blink animation */
+  @keyframes blinkEffect {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0.5; }
+    75% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+  /* Class to apply when display is turned on */
+  .weight-display.active {
+    display: flex;
+    animation: blinkEffect 0.8s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px 5px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+  }
+
