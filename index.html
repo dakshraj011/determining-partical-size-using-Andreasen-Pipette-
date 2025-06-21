@@ -11,11 +11,11 @@
     <!-- Top Panel -->
     <div class="top-panel">
       <div class="instruction-box" id="instructionText">
-        Instructions -- this is the first step (typing animation)
+        Instructions --To Start Simulation Click On Start Simulation
       </div>
       <!-- Selcet Bar For Choosing Different Languages -->
        
-      <select class="language-toggle" name="language-toggle" onchange="changeLanguage(this.value)">
+      <select class="language-toggle" id="languagePanel" name="language-toggle" onchange="changeLanguage(this.value)">
         <option value="en" >English</option>
         <option value="hi" >हिंदी</option>
         <option value="bn" >বাংলা</option>
@@ -33,7 +33,18 @@
     <div class="main-content">
       <div class="simulation-area">
         <div class="bg-text" id="bgText">
+    <h2 id="TableHeading">Andreasen Pipette – Sedimentation Table</h2>
 
+<table id="resultsTable">
+  <tr>
+    <th>Sample No.</th>
+    <th>Time (s)</th>
+    <th>Dry Weight (g)</th>
+    <th>% of Total</th>
+  </tr>
+</table>
+<span id="displayTable">View Result</span>
+<span id="StartButton">Start Simulation</span>
 <img src="weighing-scale.png" alt="" class="weighing-scale">
 <div class="disk">
 <img src="disk.png" alt="" id="disk1">
@@ -62,7 +73,7 @@
     <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater11" alt="">
     <img src="Chemical Water.png" class="ChemicalWater"  id="chemicalWater12" alt="">
 
-   
+
   <!-- stopwatch -->
   <div class="stopWatch">
      <div id="stopwatchDisplay">00:00:00</div>
@@ -85,6 +96,7 @@
     <img src="gravity density bottle water.png" id="drop6" alt="">
 
 <img src="boiling.png" alt="" id="flask" class="boiling">
+<img id="WaterInFlask" src="gravity density bottle water.png" alt="">
 
           <div class="weighing-controls">
             <button class="weighing-btn" id="onButton">ON</button>
@@ -116,3 +128,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
